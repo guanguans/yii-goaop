@@ -35,14 +35,21 @@ return [
         'aop' => [
             'class'   => 'Guanguans\YiiGoAop\GoAopComponent',
             'initOption'  => [
+                // AOP Debug Mode
                 'debug'          => false,
-                'appDir'         => dirname(__DIR__),
+                // Application Root Directory
+                'appDir'         => dirname(dirname(__DIR__)),
+                // AOP Cache Directory
                 'cacheDir'       => dirname(__DIR__).'/runtime/aspect',
+                // Cache File Mode
                 'cacheFileMode'  => 511,
+                // Miscellaneous AOP Engine Features
                 'features'       => 0,
+                // Directories White List
                 'includePaths'   => [
                     dirname(__DIR__),
                 ],
+                // Directories Black List
                 'excludePaths'   => [
                     dirname(__DIR__).'/config',
                     dirname(__DIR__).'/runtime',
@@ -50,10 +57,12 @@ return [
                     dirname(__DIR__).'/views',
                     dirname(__DIR__).'/web',
                 ],
+                // AOP Container
                 'containerClass' => \Go\Core\GoAspectContainer::class,
             ],
+            // yours aspects
             'aspects' => [
-                frontend\aspects\MonitorAspect::class, // yours aspects
+                frontend\aspects\LoggingAspect::class,
             ],
         ],
     ]
@@ -62,7 +71,45 @@ return [
 
 ## Usage
 
-> to do
+### Create yours aspect
+
+``` php
+<?php
+
+namespace frontend\aspects;
+
+use Go\Aop\Aspect;
+use Go\Aop\Intercept\MethodInvocation;
+use Go\Lang\Annotation\Before;
+use Yii;
+
+class LoggingAspect implements Aspect
+{
+    /**
+     * Method that will be called before real method
+     * @param  MethodInvocation  $invocation  Invocation
+     * @Before("execution(public frontend\controllers\SiteController->*Index(*))")
+     */
+    public function beforeMethodExecution(MethodInvocation $invocation)
+    {
+        file_put_contents(Yii::$app->getRuntimePath().'/logs/logging.log', 'this is a before method testing.'.PHP_EOL, FILE_APPEND);
+    }
+
+    /**
+     * Method that will be called before real method
+     * @param  MethodInvocation  $invocation  Invocation
+     * @Before("execution(public frontend\controllers\SiteController->*Index(*))")
+     */
+    public function afterMethodExecution(MethodInvocation $invocation)
+    {
+        file_put_contents(Yii::$app->getRuntimePath().'/logs/logging.log', 'this is a after method testing.'.PHP_EOL, FILE_APPEND);
+    }
+}
+```
+
+### Run `frontend\controllers\SiteController\actionIndex` action
+
+### `cat frontend/runtime/logs/logging.log`
 
 ## Testing
 

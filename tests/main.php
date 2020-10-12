@@ -52,7 +52,7 @@ $config = [
                 | AOP engine will put all transformed files and caches in that directory.
                 |
                 */
-                'cacheDir' => __DIR__.'/runtime/aspect',
+                'cacheDir' => __DIR__.'/Features/runtime/aspect',
 
                 /*
                 |--------------------------------------------------------------------------
@@ -135,7 +135,7 @@ $config = [
                 'containerClass' => \Go\Core\GoAspectContainer::class,
             ],
             'aspects' => [
-                Guanguans\YiiGoAop\Tests\Aspects\MonitorAspect::class, // yours aspects
+                Guanguans\YiiGoAop\Tests\Features\Aspects\LoggingAspect::class, // yours aspects
             ],
         ],
     ],

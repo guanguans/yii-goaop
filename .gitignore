@@ -15,4 +15,5 @@ tests.php
 .DS_Store
 .history/
 yii-goaop/
-tests/runtime/aspect/
+tests/Features/runtime/aspect/
+tests/Features/runtime/logging.log
