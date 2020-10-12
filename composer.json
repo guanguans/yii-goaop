@@ -4,8 +4,9 @@
         "aop",
         "goaop",
         "aspect",
-        "php",
-        "yii"
+        "yii",
+        "yii2",
+        "php"
     ],
     "description": "Bringing the goaop/framework to Yii. - 将 goaop/framework 集成到 Yii。",
     "homepage": "https://github.com/guanguans/yii-goaop",
@@ -71,11 +72,13 @@
         "cghooks": "vendor/bin/cghooks",
         "check-style": "php-cs-fixer fix --using-cache=no --diff --config=.php_cs --dry-run --ansi",
         "fix-style": "php-cs-fixer fix --using-cache=no --config=.php_cs --ansi",
-        "test": "vendor/bin/phpunit --coverage-text --colors=always --verbose"
+        "test": "vendor/bin/phpunit --coverage-text --colors=always --verbose",
+        "test-plus": "vendor/bin/phpunit --coverage-html=yii-goaop --color=always --verbose"
     },
     "scripts-descriptions": {
-        "test": "Run all tests.",
         "check-style": "Run style checks (only dry run - no fixing!).",
-        "fix-style": "Run style checks and fix violations."
+        "fix-style": "Run style checks and fix violations.",
+        "test": "Run all tests.",
+        "test-plus": "Run all tests with coverage."
     }
 }

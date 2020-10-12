@@ -1,6 +1,8 @@
 # yii-goaop
 
 ![CI](https://github.com/guanguans/yii-goaop/workflows/CI/badge.svg)
+[![Build Status](https://travis-ci.org/guanguans/yii-goaop.svg?branch=main)](https://travis-ci.org/guanguans/yii-goaop)
+[![codecov](https://codecov.io/gh/guanguans/yii-goaop/branch/main/graph/badge.svg)](https://codecov.io/gh/guanguans/yii-goaop)
 [![StyleCI](https://github.styleci.io/repos/303249572/shield?branch=main)](https://github.styleci.io/repos/303249572?branch=main)
 [![Latest Stable Version](https://poser.pugx.org/guanguans/yii-goaop/v)](//packagist.org/packages/guanguans/yii-goaop)
 [![Total Downloads](https://poser.pugx.org/guanguans/yii-goaop/downloads)](//packagist.org/packages/guanguans/yii-goaop)
