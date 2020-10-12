@@ -1,0 +1,81 @@
+{
+    "name": "guanguans/yii-goaop",
+    "keywords": [
+        "aop",
+        "goaop",
+        "aspect",
+        "php",
+        "yii"
+    ],
+    "description": "Bringing the goaop/framework to Yii. - 将 goaop/framework 集成到 Yii。",
+    "homepage": "https://github.com/guanguans/yii-goaop",
+    "support": {
+        "issues": "https://github.com/guanguans/yii-goaop/issues",
+        "source": "https://github.com/guanguans/yii-goaop"
+    },
+    "authors": [
+        {
+            "name": "guanguans",
+            "email": "ityaozm@gmail.com",
+            "homepage": "https://guanguans.cn",
+            "role": "developer"
+        }
+    ],
+    "type": "yii",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "yiisoft/yii2": "~2.0",
+        "goaop/framework": "^2.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.2",
+        "brainmaestro/composer-git-hooks": "^2.7",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpunit/phpunit": "~7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Guanguans\\YiiGoAop\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Guanguans\\YiiGoAop\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "hooks": {
+            "pre-commit": [
+                "composer test",
+                "composer check-style"
+            ],
+            "pre-push": [
+                "composer test",
+                "composer check-style"
+            ]
+        }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "cghooks update"
+        ],
+        "post-merge": "composer install",
+        "post-install-cmd": [
+            "cghooks add --ignore-lock",
+            "cghooks update"
+        ],
+        "cghooks": "vendor/bin/cghooks",
+        "check-style": "php-cs-fixer fix --using-cache=no --diff --config=.php_cs --dry-run --ansi",
+        "fix-style": "php-cs-fixer fix --using-cache=no --config=.php_cs --ansi",
+        "test": "vendor/bin/phpunit --coverage-text --colors=always --verbose"
+    },
+    "scripts-descriptions": {
+        "test": "Run all tests.",
+        "check-style": "Run style checks (only dry run - no fixing!).",
+        "fix-style": "Run style checks and fix violations."
+    }
+}
