@@ -17,7 +17,7 @@
 ## Installation
 
 ``` bash
-$ composer require guanguans/yii-goaop -v
+$ composer require guanguans/yii-goaop -vvv
 ```
 
 ## Configuration
@@ -51,16 +51,14 @@ return [
                 ],
                 // Directories Black List
                 'excludePaths'   => [
-                    dirname(__DIR__).'/config',
                     dirname(__DIR__).'/runtime',
                     dirname(__DIR__).'/tests',
                     dirname(__DIR__).'/views',
-                    dirname(__DIR__).'/web',
                 ],
                 // AOP Container
                 'containerClass' => \Go\Core\GoAspectContainer::class,
             ],
-            // yours aspects
+            // Yours aspects
             'aspects' => [
                 frontend\aspects\LoggingAspect::class,
             ],
@@ -81,6 +79,7 @@ namespace frontend\aspects;
 use Go\Aop\Aspect;
 use Go\Aop\Intercept\MethodInvocation;
 use Go\Lang\Annotation\Before;
+use Go\Lang\Annotation\After;
 use Yii;
 
 class LoggingAspect implements Aspect
@@ -96,9 +95,9 @@ class LoggingAspect implements Aspect
     }
 
     /**
-     * Method that will be called before real method
+     * Method that will be called after real method
      * @param  MethodInvocation  $invocation  Invocation
-     * @Before("execution(public frontend\controllers\SiteController->*Index(*))")
+     * @After("execution(public frontend\controllers\SiteController->*Index(*))")
      */
     public function afterMethodExecution(MethodInvocation $invocation)
     {

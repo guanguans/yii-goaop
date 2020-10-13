@@ -12,6 +12,7 @@ namespace Guanguans\YiiGoAop\Tests\Features\Aspects;
 
 use Go\Aop\Aspect;
 use Go\Aop\Intercept\MethodInvocation;
+use Go\Lang\Annotation\After;
 use Go\Lang\Annotation\Before;
 
 class LoggingAspect implements Aspect
@@ -28,10 +29,10 @@ class LoggingAspect implements Aspect
     }
 
     /**
-     * Method that will be called before real method.
+     * Method that will be called after real method.
      *
      * @param MethodInvocation $invocation Invocation
-     * @Before("execution(public Guanguans\YiiGoAop\Tests\Features\Logging::*(*))")
+     * @After("execution(public Guanguans\YiiGoAop\Tests\Features\Logging::*(*))")
      */
     public function afterMethodExecution(MethodInvocation $invocation)
     {

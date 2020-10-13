@@ -135,7 +135,7 @@ $config = [
                 'containerClass' => \Go\Core\GoAspectContainer::class,
             ],
             'aspects' => [
-                Guanguans\YiiGoAop\Tests\Features\Aspects\LoggingAspect::class, // yours aspects
+                Guanguans\YiiGoAop\Tests\Features\Aspects\LoggingAspect::class, // Yours aspects
             ],
         ],
     ],

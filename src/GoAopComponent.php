@@ -43,7 +43,7 @@ class GoAopComponent extends Component implements BootstrapInterface
     }
 
     /**
-     * @return mixed
+     * @return \Guanguans\YiiGoAop\AspectYiiKernel|null
      */
     public function getAspectKernel()
     {
@@ -51,7 +51,7 @@ class GoAopComponent extends Component implements BootstrapInterface
     }
 
     /**
-     * @return mixed
+     * @return \Go\Core\AspectContainer|null
      */
     public function getAspectContainer()
     {
