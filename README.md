@@ -185,6 +185,15 @@ class LoggingAspect implements Aspect
 
 ### `cat frontend/runtime/logs/logging.log`
 
+``` bash
+───────┬───────────────────────────────────────────────────────────────────
+       │ File: frontend/runtime/logs/logging.log
+───────┼───────────────────────────────────────────────────────────────────
+   1   │ this is a before method testing.
+   2   │ this is a after method testing.
+───────┴───────────────────────────────────────────────────────────────────
+```
+
 ## Testing
 
 ``` bash
