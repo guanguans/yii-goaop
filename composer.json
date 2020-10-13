@@ -8,7 +8,7 @@
         "yii2",
         "php"
     ],
-    "description": "Bringing the goaop/framework to Yii. - 将 goaop/framework 集成到 Yii。",
+    "description": "Bringing the goaop to Yii. - 将 goaop 集成到 Yii。",
     "homepage": "https://github.com/guanguans/yii-goaop",
     "support": {
         "issues": "https://github.com/guanguans/yii-goaop/issues",
