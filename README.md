@@ -8,7 +8,7 @@
 [![Total Downloads](https://poser.pugx.org/guanguans/yii-goaop/downloads)](//packagist.org/packages/guanguans/yii-goaop)
 [![License](https://poser.pugx.org/guanguans/yii-goaop/license)](//packagist.org/packages/guanguans/yii-goaop)
 
-> Bringing the goaop/framework to Yii. - 将 goaop/framework 集成到 Yii。
+> Bringing the goaop/framework to Yii. - 将 goaop/framework 集成到 Yii，在 Yii 中优雅的面向切面编程。
 
 ## Requirement
 
@@ -20,7 +20,27 @@
 $ composer require guanguans/yii-goaop -vvv
 ```
 
+`composer.json` add:
+
+``` json
+"autoload": {
+    "psr-4": {
+        "backend\\": "backend//",
+        "frontend\\": "frontend//",
+        "common\\": "common//",
+        "console\\": "console//",
+        "app\\": ""
+    }
+}
+```
+
+``` bash
+$ composer dumpautoload
+```
+
 ## Configuration
+
+### yii2-app-advanced
 
 Config `config/main.php` file add:
 
@@ -67,9 +87,64 @@ return [
 ];
 ```
 
+### yii2-app-basic
+
+Config `config/web.php` file add:
+
+``` php
+return [
+    'bootstrap' => [
+        'aop',
+    ],
+    'components' => [
+        'aop' => [
+            'class'   => 'Guanguans\YiiGoAop\GoAopComponent',
+            'initOption'  => [
+                // AOP Debug Mode
+                'debug'          => false,
+                // Application Root Directory
+                'appDir'         => dirname(dirname(__DIR__)),
+                // AOP Cache Directory
+                'cacheDir'       => dirname(__DIR__).'/runtime/aspect',
+                // Cache File Mode
+                'cacheFileMode'  => 511,
+                // Miscellaneous AOP Engine Features
+                'features'       => 0,
+                // Directories White List
+                'includePaths'   => [
+                    dirname(__DIR__).'/assets',
+                    dirname(__DIR__).'/aspects',
+                    dirname(__DIR__).'/commands',
+                    dirname(__DIR__).'/controllers',
+                    dirname(__DIR__).'/models',
+                    dirname(__DIR__).'/widgets',
+                ],
+                // Directories Black List
+                'excludePaths'   => [
+                    dirname(__DIR__).'/config',
+                    dirname(__DIR__).'/mail',
+                    dirname(__DIR__).'/runtime',
+                    dirname(__DIR__).'/tests',
+                    dirname(__DIR__).'/vagrant',
+                    dirname(__DIR__).'/vendor',
+                    dirname(__DIR__).'/views',
+                    dirname(__DIR__).'/web',
+                ],
+                // AOP Container
+                'containerClass' => \Go\Core\GoAspectContainer::class,
+            ],
+            // Yours aspects
+            'aspects' => [
+                app\aspects\LoggingAspect::class,
+            ],
+        ],
+    ]
+];
+```
+
 ## Usage
 
-### Create yours aspect
+### Create a aspect for `public frontend\controllers\SiteController->*Index(*)`
 
 ``` php
 <?php
