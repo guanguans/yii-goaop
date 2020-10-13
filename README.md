@@ -25,10 +25,10 @@ $ composer require guanguans/yii-goaop -vvv
 ``` json
 "autoload": {
     "psr-4": {
-        "backend\\": "backend//",
-        "frontend\\": "frontend//",
-        "common\\": "common//",
-        "console\\": "console//",
+        "backend\\": "backend/",
+        "frontend\\": "frontend/",
+        "common\\": "common/",
+        "console\\": "console/",
         "app\\": ""
     }
 }
