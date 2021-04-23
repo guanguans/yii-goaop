@@ -17,3 +17,5 @@ tests.php
 yii-goaop/
 tests/Features/runtime/aspect/
 tests/Features/runtime/logging.log
+cghooks.lock
+
