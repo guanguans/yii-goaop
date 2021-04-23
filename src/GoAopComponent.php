@@ -19,12 +19,24 @@ use yii\base\Component;
  */
 class GoAopComponent extends Component implements BootstrapInterface
 {
-    public $initOption = [];
+    /**
+     * @var array
+     */
+    public $initOptions = [];
 
+    /**
+     * @var array
+     */
     public $aspects = [];
 
+    /**
+     * @var \Guanguans\YiiGoAop\AspectYiiKernel
+     */
     protected $aspectKernel;
 
+    /**
+     * @var \Go\Core\AspectContainer
+     */
     protected $aspectContainer;
 
     /**
@@ -36,7 +48,7 @@ class GoAopComponent extends Component implements BootstrapInterface
         parent::init();
 
         $aspectYiiKernel = AspectYiiKernel::getInstance();
-        $aspectYiiKernel->init($this->initOption);
+        $aspectYiiKernel->init($this->initOptions);
 
         $this->aspectKernel = $aspectYiiKernel;
         $this->aspectContainer = $aspectYiiKernel->getContainer();

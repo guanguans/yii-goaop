@@ -16,7 +16,7 @@ use Yii;
 
 class GoAopComponentTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->aop = Yii::$app->aop;

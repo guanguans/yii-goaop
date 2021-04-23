@@ -17,7 +17,7 @@ $config = [
     'components' => [
         'aop' => [
             'class' => 'Guanguans\YiiGoAop\GoAopComponent',
-            'initOption' => [
+            'initOptions' => [
                 /*
                  |--------------------------------------------------------------------------
                  | AOP Debug Mode
