@@ -17,7 +17,7 @@
 ## Installation
 
 ``` bash
-$ composer require guanguans/yii-goaop -vvv
+$ composer require guanguans/yii-goaop --prefer-dist -vvv
 ```
 
 `composer.json` add:
@@ -54,7 +54,7 @@ return [
     'components' => [
         'aop' => [
             'class'   => 'Guanguans\YiiGoAop\GoAopComponent',
-            'initOption'  => [
+            'initOptions'  => [
                 // AOP Debug Mode
                 'debug'          => false,
                 // Application Root Directory
@@ -99,7 +99,7 @@ return [
     'components' => [
         'aop' => [
             'class'   => 'Guanguans\YiiGoAop\GoAopComponent',
-            'initOption'  => [
+            'initOptions'  => [
                 // AOP Debug Mode
                 'debug'          => false,
                 // Application Root Directory
